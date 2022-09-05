@@ -1,6 +1,5 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
+import 'package:quizzer/name.dart';
 
 class Result extends StatelessWidget {
   final int resultScore;
@@ -42,13 +41,14 @@ class Result extends StatelessWidget {
           ), //Text
           Text(
             'Score ' '$resultScore',
-            style: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+                fontSize: 36, fontWeight: FontWeight.bold, color: Colors.black),
             textAlign: TextAlign.center,
           ), //Text
           TextButton(
             onPressed: () => resetHandler(),
             child: Container(
-              color: Colors.green,
+              color: Color.fromARGB(255, 175, 76, 153),
               padding: const EdgeInsets.all(14),
               child: const Text(
                 'Restart Quiz',
@@ -56,8 +56,8 @@ class Result extends StatelessWidget {
               ),
             ),
           ),
-        ], //<Widget>[]
-      ), //Column
-    ); //Center
+        ],
+      ),
+    );
   }
 }

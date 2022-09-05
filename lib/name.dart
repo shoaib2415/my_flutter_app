@@ -7,8 +7,7 @@ class Name extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // title: 'Techwizz',
-      // theme: ThemeData(primarySwatch: Colors.blue),
+      debugShowCheckedModeBanner: false,
       home: TextFieldScreen(),
     );
   }
@@ -22,6 +21,7 @@ class TextFieldScreen extends StatefulWidget {
 class _textFieldScreenState extends State<TextFieldScreen> {
   final _controller = TextEditingController();
   String name = "";
+  bool hasSubmitted = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

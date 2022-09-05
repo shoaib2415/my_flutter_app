@@ -143,26 +143,22 @@ class _QuizAppState extends State<QuizApp> {
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
-
-    // WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-    //   _answerQuestion(2);
-    // });
   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Column(children: [
-      _questionIndex < _questions.length
-          ? Quiz(
-              answerQuestion: _answerQuestion,
-              questionIndex: _questionIndex,
-              questions: _questions,
-            ) //Quiz
-          : Result(_totalScore, _resetQuiz),
-    ]));
+          _questionIndex < _questions.length
+              ? Quiz(
+                  answerQuestion: _answerQuestion,
+                  questionIndex: _questionIndex,
+                  questions: _questions,
+                ) //Quiz
+              : Result(_totalScore, _resetQuiz),
+        ]));
 //MaterialApp
   }
 }
