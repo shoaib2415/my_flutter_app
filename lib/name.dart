@@ -19,7 +19,6 @@ class TextFieldScreen extends StatefulWidget {
 }
 
 class _textFieldScreenState extends State<TextFieldScreen> {
-  // final _controller = TextEditingController();
   TextEditingController _name = TextEditingController();
   String name = "";
   Widget build(BuildContext context) {
@@ -30,7 +29,6 @@ class _textFieldScreenState extends State<TextFieldScreen> {
           Text(name),
           Container(
             child: TextField(
-              // controller: _controller,
               controller: _name,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
