@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:quizzer/result.dart';
 
 import './quizapp.dart';
 
@@ -19,10 +20,9 @@ class TextFieldScreen extends StatefulWidget {
 }
 
 class _textFieldScreenState extends State<TextFieldScreen> {
-  final _controller = TextEditingController();
+  // final _controller = TextEditingController();
+  TextEditingController _name = TextEditingController();
   String name = "";
-  bool hasSubmitted = false;
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
@@ -31,7 +31,8 @@ class _textFieldScreenState extends State<TextFieldScreen> {
           Text(name),
           Container(
             child: TextField(
-              controller: _controller,
+              // controller: _controller,
+              controller: _name,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderSide: BorderSide(width: 2),
@@ -52,9 +53,19 @@ class _textFieldScreenState extends State<TextFieldScreen> {
                   child: Text('Submit'),
                   focusColor: Color.fromARGB(255, 54, 158, 244),
                   onPressed: () {
-                    setState(() {
-                      name = _controller.text;
-                    });
+                    /* setState(() {
+                      name = _name.text;
+                    });*/
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                          // Builder for the nextpage
+                          // class's constructor.
+                          builder: (context) => quizApp(
+                                // Date as arguments to
+                                // send to next page.
+                                name: _name.text,
+                              )),
+                    );
 
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => QuizApp(name)));
@@ -64,3 +75,5 @@ class _textFieldScreenState extends State<TextFieldScreen> {
     );
   }
 }
+
+quizApp({required String name}) {}

@@ -5,7 +5,8 @@ class Result extends StatelessWidget {
   final int resultScore;
   final Function resetHandler;
 
-  const Result(this.resultScore, this.resetHandler, {Key? key})
+  const Result(this.resultScore, this.resetHandler,
+      {Key? key, required String name})
       : super(key: key);
 
 //Remark Logic
