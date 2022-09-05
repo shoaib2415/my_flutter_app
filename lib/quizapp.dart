@@ -155,19 +155,20 @@ class _QuizAppState extends State<QuizApp> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+        debugShowCheckedModeBanner: false,
         home: Column(children: [
-      _questionIndex < _questions.length
-          ? Quiz(
-              answerQuestion: _answerQuestion,
-              questionIndex: _questionIndex,
-              questions: _questions,
-            ) //Quiz
-          : Result(
-              _totalScore,
-              _resetQuiz,
-              name: '',
-            ),
-    ]));
+          _questionIndex < _questions.length
+              ? Quiz(
+                  answerQuestion: _answerQuestion,
+                  questionIndex: _questionIndex,
+                  questions: _questions,
+                ) //Quiz
+              : Result(
+                  _totalScore,
+                  _resetQuiz,
+                  name: '',
+                ),
+        ]));
 //MaterialApp
   }
 }
