@@ -20,8 +20,7 @@ class TextFieldScreen extends StatefulWidget {
 }
 
 class _textFieldScreenState extends State<TextFieldScreen> {
-  // final _controller = TextEditingController();
-  TextEditingController _name = TextEditingController();
+  final _controller = TextEditingController();
   String name = "";
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,8 +30,7 @@ class _textFieldScreenState extends State<TextFieldScreen> {
           Text(name),
           Container(
             child: TextField(
-              // controller: _controller,
-              controller: _name,
+              controller: _controller,
               decoration: InputDecoration(
                 border: OutlineInputBorder(
                   borderSide: BorderSide(width: 2),
@@ -53,9 +51,9 @@ class _textFieldScreenState extends State<TextFieldScreen> {
                   child: Text('Submit'),
                   focusColor: Color.fromARGB(255, 54, 158, 244),
                   onPressed: () {
-                    /* setState(() {
-                      name = _name.text;
-                    });*/
+                    setState(() {
+                      name = _controller.text;
+                    });
                     Navigator.of(context).push(
                       MaterialPageRoute(
                           // Builder for the nextpage
@@ -63,7 +61,7 @@ class _textFieldScreenState extends State<TextFieldScreen> {
                           builder: (context) => quizApp(
                                 // Date as arguments to
                                 // send to next page.
-                                name: _name.text,
+                                name: _controller.text,
                               )),
                     );
 
